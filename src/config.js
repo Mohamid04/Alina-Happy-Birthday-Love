@@ -8,7 +8,7 @@ export const birthdayConfig = {
   clue: 'The date our story began',
   photos: [
     { src: localAsset('Videos/baby.mp4'), caption: 'Miss Youuu... Kisses' },
-    { src: localAsset('Videos/alina coaching.mp4'), caption: 'Still my favorite view' },
+    { src: localAsset('Videos/Alina coaching.mp4'), caption: 'Still my favorite view' },
     { src: localAsset('Videos/Beauty.mp4'), caption: 'Meri Cutie Momo ki Chatni' },
     { src: localAsset('Videos/Orion MAll.mp4'), caption: 'A thousand quiet joys' },
     { src: localAsset('Videos/ADmall.mp4'), caption: 'You make ordinary magic' },
