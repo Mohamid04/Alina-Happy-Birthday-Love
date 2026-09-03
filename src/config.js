@@ -1,3 +1,5 @@
+const localAsset = (path) => `${import.meta.env.BASE_URL}${path}`
+
 export const birthdayConfig = {
   wifeName: 'Alina',
   yourName: 'Mohamid',
@@ -5,18 +7,18 @@ export const birthdayConfig = {
   password: '2021',
   clue: 'The date our story began',
   photos: [
-    { src: '/videos/baby.mp4', caption: 'Miss Youuu... Kisses' },
-    { src: '/videos/alina coaching.mp4', caption: 'Still my favorite view' },
-    { src: '/Videos/Beauty.mp4', caption: 'Meri Cutie Momo ki Chatni' },
-    { src: '/Videos/Orion MAll.mp4', caption: 'A thousand quiet joys' },
-    { src: '/Videos/ADmall.mp4', caption: 'You make ordinary magic' },
-    { src: '/Videos/WhatsApp Video 2026-09-03 at 3.47.27 AM.mp4', caption: 'Eid Mubarak... I love you' },
+    { src: localAsset('Videos/baby.mp4'), caption: 'Miss Youuu... Kisses' },
+    { src: localAsset('Videos/alina coaching.mp4'), caption: 'Still my favorite view' },
+    { src: localAsset('Videos/Beauty.mp4'), caption: 'Meri Cutie Momo ki Chatni' },
+    { src: localAsset('Videos/Orion MAll.mp4'), caption: 'A thousand quiet joys' },
+    { src: localAsset('Videos/ADmall.mp4'), caption: 'You make ordinary magic' },
+    { src: localAsset('Videos/WhatsApp Video 2026-09-03 at 3.47.27 AM.mp4'), caption: 'Eid Mubarak... I love you' },
   ],
   timeline: [
-    { date: 'A Beautiful Memory', title: 'The Time I Fall In Love', text: 'One ordinary day quietly became the first page of my favorite story.', image: '/images/Coaching.jpeg' },
-    { date: 'Beauty', title: 'Meri Khoobsurat Biwi', text: 'My Beautiful Wife, you are the most beautiful chapter of my life, and I want to love you every single day for the rest of my life.', image: '/images/Alina2.jpeg' },
-    { date: 'Kabhi Nahi Chodne Wale', title: 'Hand In Hand', text: 'Hand in Hand, through every moment, every journey, and every chapter of our lives.', image: '/images/hath.jpeg' },
-    { date: 'NOW & ALWAYS', title: 'Today - Your Birthday', text: 'Every version of my future is better because it has you in it.', image: '/images/sweetheart.jpeg' },
+    { date: 'A Beautiful Memory', title: 'The Time I Fall In Love', text: 'One ordinary day quietly became the first page of my favorite story.', image: localAsset('images/Coaching.jpeg') },
+    { date: 'Beauty', title: 'Meri Khoobsurat Biwi', text: 'My Beautiful Wife, you are the most beautiful chapter of my life, and I want to love you every single day for the rest of my life.', image: localAsset('images/Alina2.jpeg') },
+    { date: 'Kabhi Nahi Chodne Wale', title: 'Hand In Hand', text: 'Hand in Hand, through every moment, every journey, and every chapter of our lives.', image: localAsset('images/hath.jpeg') },
+    { date: 'NOW & ALWAYS', title: 'Today - Your Birthday', text: 'Every version of my future is better because it has you in it.', image: localAsset('images/Sweetheart.jpeg') },
   ],
   quiz: [
     { question: 'Where did our story begin?', answers: ['coaching', 'Instagram', 'School'], correct: 0 },
