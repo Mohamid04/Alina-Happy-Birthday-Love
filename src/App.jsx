@@ -1,5 +1,5 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
-import { birthdayConfig as data, localAsset } from './config'
+import { useEffect, useMemo, useState } from 'react'
+import { birthdayConfig as data } from './config'
 import './App.css'
 
 const Icon = ({ children }) => <span className="icon" aria-hidden="true">{children}</span>
@@ -21,13 +21,6 @@ function App() {
   const [giftOpen, setGiftOpen] = useState(false)
   const [final, setFinal] = useState(false)
   const [time, setTime] = useState(new Date())
-  const audioRef = useRef(null)
-
-  useEffect(() => {
-    if (!audioRef.current) return
-    if (music) audioRef.current.play().catch(() => setMusic(false))
-    else audioRef.current.pause()
-  }, [music])
 
   useEffect(() => { const timer = setInterval(() => setTime(new Date()), 1000); return () => clearInterval(timer) }, [])
   useEffect(() => {
@@ -38,13 +31,12 @@ function App() {
   const progress = useMemo(() => ({ lock: 0, reveal: 1, story: 2, gallery: 3, game: 4, quiz: 5, gift: 6, final: 7 }[stage] || 0), [stage])
   const days = Math.max(0, Math.floor((time.getTime() - new Date(data.storyDate).getTime()) / 86400000))
   const next = (target) => { setStage(target); window.scrollTo({ top: 0, behavior: 'smooth' }) }
-  const unlock = (event) => { event.preventDefault(); if (password === data.password) { setStage('reveal'); setError(''); setMusic(true) } else setError('That isn’t it, love. Try the date in four digits.') }
+  const unlock = (event) => { event.preventDefault(); if (password === data.password) { setStage('reveal'); setError('') } else setError('That isn’t it, love. Try the date in four digits.') }
   const catchHeart = (id) => { setHearts((current) => current.filter((heart) => heart.id !== id)); setCollected((count) => count + 1) }
   const answerQuiz = (answer) => { setQuizScore((score) => score + (answer === data.quiz[quizIndex].correct ? 1 : 0)); setQuizIndex((index) => index + 1) }
 
   return <div className={`app ${stage}`}>
     <div className="grain" />
-    <audio ref={audioRef} src={localAsset('Music/Music.mp3')} loop preload="auto" />
     {stage !== 'lock' && <header className="topbar"><button className="wordmark" onClick={() => next('reveal')}><span>for</span> {data.wifeName}</button><div className="progress"><span style={{ width: `${(progress / 7) * 100}%` }} /></div><button className="music" onClick={() => setMusic(!music)}><Icon>{music ? '■' : '♫'}</Icon> {music ? 'Music on' : 'Music off'}</button></header>}
     {stage === 'lock' && <main className="lock-screen"><div className="lock-orbit orbit-one" /><div className="lock-orbit orbit-two" /><div className="lock-content"><div className="eyebrow">A little secret for you</div><div className="lock-symbol">♡</div><h1>Someone very<br /><em>special</em> has a surprise<br />waiting for you.</h1><p className="lock-note">{data.clue}</p><form onSubmit={unlock} className="pass-form"><input aria-label="Password" inputMode="numeric" value={password} onChange={(event) => setPassword(event.target.value)} placeholder="DDMM" maxLength="4" /><button aria-label="Unlock surprise"><Icon>→</Icon></button></form>{error && <p className="error">{error}</p>}<button className="music-minimal" onClick={() => setMusic(!music)}><Icon>{music ? '■' : '♫'}</Icon> {music ? 'pause the soundtrack' : 'play the soundtrack'}</button></div><div className="lock-footer">EST. 2021 <span>✦</span> MADE WITH LOVE</div></main>}
     {stage === 'reveal' && <main className="reveal page"><div className="sparkles">✦　·　✧　·　✦</div><div className="eyebrow">A celebration of you</div><h1>Happy Birthday,<br /><em>my love.</em></h1><p>Today is all about you.</p><div className="cake"><div className="flame">✦</div><div className="candle" /><div className="cake-top" /><div className="cake-body" /><div className="plate" /></div><button className="button primary" onClick={() => next('story')}>Open your surprise <Icon>→</Icon></button><div className="scroll-hint">SCROLL TO BEGIN <span>↓</span></div></main>}
