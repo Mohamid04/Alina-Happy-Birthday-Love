@@ -12,7 +12,7 @@ export const birthdayConfig = {
     { src: localAsset('Videos/Beauty.mp4'), caption: 'Meri Cutie Momo ki Chatni' },
     { src: localAsset('Videos/Orion MAll.mp4'), caption: 'A thousand quiet joys' },
     { src: localAsset('Videos/ADmall.mp4'), caption: 'You make ordinary magic' },
-    { src: localAsset('Videos/WhatsApp Video 2026-09-03 at 3.47.27 AM.mp4'), caption: 'Eid Mubarak... I love you' },
+    { src: localAsset('Videos/Eid.mp4'), caption: 'Eid Mubarak... I love you' },
   ],
   timeline: [
     { date: 'A Beautiful Memory', title: 'The Time I Fall In Love', text: 'One ordinary day quietly became the first page of my favorite story.', image: localAsset('images/Coaching.jpeg') },
