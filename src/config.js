@@ -5,7 +5,7 @@ export const birthdayConfig = {
   yourName: 'Mohamid',
   storyDate: '2021-08-02T18:00:00',
   password: '2021',
-  clue: 'The date our story began',
+  clue: 'The year our story began',
   photos: [
     { src: localAsset('Videos/baby.mp4'), caption: 'Miss Youuu... Kisses' },
     { src: localAsset('Videos/Alinacoaching.mp4'), caption: 'Still my favorite view' },
